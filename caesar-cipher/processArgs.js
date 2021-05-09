@@ -12,7 +12,6 @@ export default () => {
 
   program
     .addHelpText('before', 'This utility will encode or decode your input using Caesar ciphering algorithm')
-    .addHelpText('afterAll', '\nCreated by Odintsov Fedor at 9 May 2021')
     .addOption(new Option('-a, --action <encode|decode>', 'an action encode/decode')
       .choices(['encode', 'decode'])
       .makeOptionMandatory(true)
@@ -22,8 +21,9 @@ export default () => {
       .argParser(checkInt)
     )
     .option('-s, --shift <number>', 'A shift of the Caesar cipher', checkInt)
-    .option('-i, --input <filename>', 'An input file. If omitted gets input from stdin')
-    .option('-o, --output <filename>', 'An output file. If omitted puts result to stdout');
+    .option('-i, --input [filename]', 'An input file. If omitted gets input from stdin')
+    .option('-o, --output [filename]', 'An output file. If omitted puts result to stdout')
+    .addHelpText('afterAll', '\nCreated by Odintsov Fedor at 9 May 2021');
 
   program.parse(process.argv);
   return program.opts();

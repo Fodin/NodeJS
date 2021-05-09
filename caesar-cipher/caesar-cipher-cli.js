@@ -20,7 +20,7 @@ if (args['input'] === undefined || args['input'] === true) {
 if (args['output'] === undefined || args['output'] === true) {
   outputStream = process.stdout;
 } else {
-  outputStream = fs.createWriteStream(args['output']);
+  outputStream = fs.createWriteStream(args['output'], {flags: 'a'});
 }
 
 pipeline(
